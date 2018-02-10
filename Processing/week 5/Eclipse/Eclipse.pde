@@ -1,5 +1,5 @@
-//Adarsh Kannan, Preeti Swaminathan
-//Project 4
+//Adarsh Kannan, Vivek Bejugama
+//Project 5
 
 // Angle of rotation around sun and planets
 float theta = 0;
