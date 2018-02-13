@@ -7,12 +7,19 @@
 
 
 //Setup and size of background
-
   float angleInDegrees = 15;
+  PImage Asteroid;
+  PImage Asteroid2; 
+  float Ast2XCo = 906;
+  float Ast2YCo = 35;
+  float AstXCo = 82;
+  float AstYCo = 55;
   
   
 void setup() {
   size(1000, 1000); 
+  Asteroid2 = loadImage("Asteroid2.png");
+  Asteroid = loadImage("Asteroid.png");
 }
 
 void draw() {
@@ -20,6 +27,17 @@ void draw() {
   //Black Background and Stars
   background(0);
   stroke(0);
+  
+  Asteroid2.resize(80,80);
+  Asteroid.resize(80,80);
+  image(Asteroid2, Ast2XCo, Ast2YCo); 
+   Ast2XCo += -4;
+   Ast2YCo +=1;
+
+ image(Asteroid, AstXCo, AstYCo); 
+   AstXCo += 4;
+   AstYCo +=7;
+   
   float cx = width/2;
   float cy = height/2;
   
