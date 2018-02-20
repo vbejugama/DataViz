@@ -1,3 +1,5 @@
+// Week 6 By Vivek Bejugama and Adarsh Kannan
+
 
 float[] month, date, year, openPrice, dayHigh, dayLow, closePrice, dayVol;
 float minPrice, maxPrice, maxDate, minDate;
