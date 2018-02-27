@@ -6,7 +6,6 @@ float minPrice, maxPrice, maxDate, minDate;
 float X1, Y1, X2, Y2;
 
 void setup() {
-  //PFont legendFont = createFont("SansSerif", 20);
   size(1000, 800);
   background(110,110,170);
   
@@ -37,9 +36,9 @@ void setup() {
     // Split fields from each line with delimitor ','
     String[] fields = split(rows[i], ",");
 
-    month[i] = float(fields[0]);
-    date[i] = float(fields[1]);
-    year[i] = float(fields[2]);
+    //month[i] = float(fields[0]);
+    //date[i] = float(fields[1]);
+    //year[i] = float(fields[2]);
     openPrice[i] = float(fields[3]);
     dayHigh[i] = float(fields[4]);
     dayLow[i] = float(fields[5]);
@@ -54,10 +53,6 @@ void setup() {
   println("Min: "+minPrice);
   println("Max: "+maxPrice);
   
-  
-//  drwGrph(closePrice, minPrice, maxPrice);
-/*  
-  textFont(legendFont);
   fill(255);
   textSize(18);
   textAlign(LEFT);
@@ -65,12 +60,17 @@ void setup() {
   textSize(10);
   textAlign(RIGHT, BOTTOM);
   text("Source: Yahoo! Finance (finance.yahoo.com)", width-10, height-10);
-*/   
+   
+  drwGrph(closePrice, minPrice, maxPrice);
+  
   // axis labels
-//  drawXLabels();
-//  drawYLabels();
+  drawXLabels();
+  drawYLabels();
+  
+  movingAverage(closePrice, minPrice, maxPrice,30);
+  movingAverage2(closePrice, minPrice, maxPrice,60);
 } 
-/*
+
 void drwGrph(float[] data, float yMin, float yMax) {
  stroke(0);
  
@@ -82,7 +82,6 @@ void drwGrph(float[] data, float yMin, float yMax) {
   }
   endShape();
 } 
-
 
 void drawYLabels () {
   fill(255);
@@ -112,4 +111,40 @@ void drawXLabels() {
   textSize(18);
   text("Month", Y2-10, width/2);
 }
-*/
+
+
+void movingAverage(float[] data, float yMin, float yMax, int MAP) {
+  noFill();
+  stroke(255, 0, 0);
+  strokeWeight(2);
+  beginShape();
+  for (int i=MAP-1; i < data.length; i++) {
+    float sum = 0;
+    for (int k=i-(MAP-1); k <= i; k++) {
+      sum += data[k];
+    }
+    float MA = sum/MAP;
+    float x = map(i, 0, data.length-1, X1, X2);
+    float y = map(MA, yMin, yMax, Y2, Y1);
+    vertex(x, y);
+  }
+  endShape();
+}
+
+void movingAverage2(float[] data, float yMin, float yMax, int MAP) {
+  noFill();
+  stroke(255, 100, 0);
+  strokeWeight(2);
+  beginShape();
+  for (int i=MAP-1; i < data.length; i++) {
+    float sum = 0;
+    for (int k=i-(MAP-1); k <= i; k++) {
+      sum += data[k];
+    }
+    float MA = sum/MAP;
+    float x = map(i, 0, data.length-1, X1, X2);
+    float y = map(MA, yMin, yMax, Y2, Y1);
+    vertex(x, y);
+  }
+  endShape();
+}
