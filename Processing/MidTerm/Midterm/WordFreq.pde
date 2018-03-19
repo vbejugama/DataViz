@@ -18,16 +18,9 @@ class WordFreq {
         }
       }
     } 
+   println("There are "+N()+" unique entries.");
   } 
   
-  void tabulate(int n) {  
-    //int n = wordFrequency.size();
-    
-    println("There are "+N()+" entries.");
-    for (int i=0; i < n; i++) {
-      println(wordFrequency.get(i));
-    }
-  } 
   
   void arrange(int N) {  
     WordTile tile;
@@ -46,7 +39,10 @@ class WordFreq {
   void display(int N) {
     for (int i=0; i < N; i++) {
       WordTile tile = wordFrequency.get(i);
-      tile.display();
+      if ( tile.freq > 5 ) {
+        tile.display();
+       // println(wordFrequency.get(i));
+      }
     }
   }  
   
@@ -80,7 +76,7 @@ class WordFreq {
       for (int i=0; i < L.size(); i++) {
         if (L.get(i).getWord().equals(w))
           return i;
-      }
+        }
       return -1;
     }
     
@@ -97,7 +93,7 @@ class WordFreq {
       return "Word Frequency Table with"+N()+" entries.";
     } 
     
-    boolean clear(int n) { // Is tile, i clear of tiles 0..i-1?
+    boolean clear(int n) { 
       WordTile tile1 = wordFrequency.get(n);
       for (int i=0; i < n; i++) {
         WordTile tile2 = wordFrequency.get(i);
@@ -106,5 +102,6 @@ class WordFreq {
         }
       } 
       return true;
-    } // clear()
+    } 
+    
 } 

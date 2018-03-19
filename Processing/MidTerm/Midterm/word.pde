@@ -3,6 +3,7 @@ class Word {
   String word;
   int freq;
   
+  // Constructor
   Word(String newWord) {  
     word = newWord;
     freq = 1;
@@ -23,4 +24,6 @@ class Word {
   String toString() {  
     return "<"+word+", "+freq+">";
   } 
+  
+
 } 
