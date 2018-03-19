@@ -1,5 +1,5 @@
 
-class Word {
+class Word implements Comparable<Word>{
   String word;
   int freq;
   
@@ -25,5 +25,7 @@ class Word {
     return "<"+word+", "+freq+">";
   } 
   
-
+  public int compareTo(Word w) {
+       return freq - w.freq;
+  }
 } 

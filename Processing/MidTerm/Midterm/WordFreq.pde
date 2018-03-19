@@ -19,6 +19,7 @@ class WordFreq {
       }
     } 
    println("There are "+N()+" unique entries.");
+   _sort(wordFrequency);
   } 
   
   
@@ -111,4 +112,19 @@ class WordFreq {
        }
     }
     
+    void scatterPlort(){
+      
+    }
+      
+    void _sort(ArrayList<WordTile> A) {
+      for (int i=0; i < A.size(); i++) {
+        WordTile a = A.get(i);     
+        int pos = i;
+        while ((pos > 0) && (a.compareTo(A.get(pos-1))>=1)) {
+          A.set(pos, A.get(pos-1));
+          pos--;
+        } 
+        A.set(pos, a);
+      }
+    }   
 } 
