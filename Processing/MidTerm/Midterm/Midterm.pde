@@ -27,7 +27,6 @@ void setup() {
   println("Max frequency:"+table.maxFreq());
   table.arrange(N);
   
-  table.samples();
 } 
 
 void draw() {
@@ -37,7 +36,8 @@ void draw() {
         table.display(N);
         break;
     case 2:  // Report 2
-        background(0);
+        background(255);
+        table.barGraph();
         break;
     case 3:  // Report 3
         background(255);

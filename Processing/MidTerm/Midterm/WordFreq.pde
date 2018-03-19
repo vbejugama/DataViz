@@ -102,6 +102,13 @@ class WordFreq {
         }
       } 
       return true;
-    } 
+    }
+    
+    void barGraph(){
+      for (int i=0; i < N; i++) {
+        WordTile tile = wordFrequency.get(i);
+          rect (i*35+20, height-30-map(tile.getFreq(), 0, 179, 30, height-40), 30, height-30-map(tile.getFreq(), 0, 179, 30, height-40));
+       }
+    }
     
 } 
