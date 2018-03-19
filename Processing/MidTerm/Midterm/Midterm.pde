@@ -2,8 +2,8 @@
 
 String inputTextFile = "HP1.txt";
 WordFreq table;
-PFont tnr;    
-int N = 2;   
+PFont fnt;    
+int N = 11;   
 
 void setup() {
 
@@ -16,11 +16,10 @@ void setup() {
   tokens = splitTokens(rawText, delimiters);
   println(tokens.length+" tokens found in file: "+inputTextFile);
 
-  size(800, 800, OPENGL);
+  size(1000, 900); //(1000, 900, OPENGL)
   
-  tnr = createFont("Times New Roman", 120);
-  textFont(tnr);
-  textSize(1);
+  fnt = createFont("Georgia",1);
+  textFont(fnt);
   noLoop();
 
   table = new WordFreq(tokens);
@@ -29,12 +28,8 @@ void setup() {
 } 
 
 void draw() {
-  background(255);
+  background(95,111,175);
   table.display(N);
   table.tabulate(N);
+  
 } 
-
-
-void mouseClicked() {
-  table.display(N);
-}

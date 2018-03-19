@@ -1,8 +1,9 @@
 class WordFreq {
-
   ArrayList<WordTile> wordFrequency;
   String [] stopWords = loadStrings("StopWords.txt");
-  WordFreq(String[] tokens) {  // Constructor
+  
+  // Constructor
+  WordFreq(String[] tokens) {  
     wordFrequency = new ArrayList();
 
     for (String t : tokens) {
@@ -29,11 +30,16 @@ class WordFreq {
   } 
   
   void arrange(int N) {  
+    WordTile tile;
     for (int i=0; i < N; i++) {
-      WordTile tile = wordFrequency.get(i);
-      tile.setFontSize();
-      tile.setSize();
-      tile.setXY(random(width), random(height));
+        tile = wordFrequency.get(i);    // the tile to be placed
+        tile.setFontSize();
+        do {  // find a random x, y for tile, i
+          float x = random(width-tile.tileW);
+          float y = random(tile.tileH, height);
+          tile.setXY(x, y);
+        } // until the tile is clear of all other tiles
+        while (!clear(i));
     }
   } 
   
@@ -90,4 +96,15 @@ class WordFreq {
     String toString() {  
       return "Word Frequency Table with"+N()+" entries.";
     } 
+    
+    boolean clear(int n) { // Is tile, i clear of tiles 0..i-1?
+      WordTile tile1 = wordFrequency.get(n);
+      for (int i=0; i < n; i++) {
+        WordTile tile2 = wordFrequency.get(i);
+        if (tile1.intersect(tile2)) {
+          return false;
+        }
+      } 
+      return true;
+    } // clear()
 } 
