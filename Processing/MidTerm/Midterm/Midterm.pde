@@ -3,7 +3,7 @@
 String inputTextFile = "HP1.txt";
 WordFreq table;
 PFont fnt;    
-int N = 470;   
+int N = 500;   
 int ReportNum = 1;
 
 void setup() {
@@ -17,7 +17,7 @@ void setup() {
   tokens = splitTokens(rawText, delimiters);
   println(tokens.length+" tokens found in file: "+inputTextFile);
 
-  size(1300, 1000); //(1000, 900, OPENGL)
+  size(1300, 1000); 
   
   fnt = createFont("Georgia",1);
   textFont(fnt);
@@ -26,7 +26,6 @@ void setup() {
   table = new WordFreq(tokens);
   println("Max frequency:"+table.maxFreq());
   table.arrange(N);
-  
 } 
 
 void draw() {
@@ -42,7 +41,7 @@ void draw() {
     case 3:  // Report 3
         background(255);
         break;
-  }
+  } 
 } 
 
 

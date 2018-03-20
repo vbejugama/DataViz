@@ -51,7 +51,7 @@ class WordFreq {
       return wordFrequency.size();
   } 
   
-  String[] samples() {  // Returns all the words
+  String[] samples() {  
       String [] k = new String[N()];
       int i=0;
       for (WordTile w : wordFrequency) {
