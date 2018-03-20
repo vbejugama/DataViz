@@ -110,13 +110,12 @@ class WordFreq {
         WordTile tile = wordFrequency.get(i);
         fill(124,23,54);
         rect (i*60+50, height-100-map(tile.getFreq(),5,210,10,height*.5), 40, map(tile.getFreq(),5,210,10,height*.5)-30);
-        
-        fill(255);
-        textSize(15);
+    
+        fill(0);
+        textSize(12);
         textAlign(BOTTOM);
         stroke(255);
-        
-        text(tile.getWord(), i*60+50 , height - 60 );
+        text(tile.getWord(), (i*60)+50 , height - 60 );
        }
     }
     
