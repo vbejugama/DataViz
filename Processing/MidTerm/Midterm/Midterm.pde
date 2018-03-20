@@ -1,6 +1,11 @@
+// ********** Midterm *********** 
+// Team Members
+// Vivek Bejugama
+// Adarsh Kannan
+// Referenced : Ira Greenberg, Dianna Xu & Deepak Kumar. “Processing.” 
 
-
-String inputTextFile = "HP1.txt";
+String inputTextFile = "HP2.txt";
+String inputTextFile2 = "HP1.txt";
 WordFreq table;
 PFont fnt;    
 int N = 500;   

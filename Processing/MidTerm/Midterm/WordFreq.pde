@@ -109,7 +109,7 @@ class WordFreq {
       for (int i=0; i < n; i++) {
         WordTile tile = wordFrequency.get(i);
         fill(124,23,54);
-        rect (i*60+50, height-100-map(tile.getFreq(),6,430,10,height*.6), 40, map(tile.getFreq(),6,430,10,height*.6)-30);
+        rect (i*60+50, height-100-map(tile.getFreq(),6,700,10,height*.6), 40, map(tile.getFreq(),6,700,10,height*.6)-30);
     
         fill(0);
         textSize(13);
