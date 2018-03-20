@@ -28,4 +28,8 @@ class Word implements Comparable<Word>{
   public int compareTo(Word w) {
        return freq - w.freq;
   }
+  
+  int wordLenght(){
+   return word.length(); 
+  }
 } 

@@ -18,7 +18,7 @@ class WordTile extends Word {
   } 
   
   void setFontSize() {
-    tileFS = map(freq, 1, 210, 10, 150); //(freq, 1, 30, 10, 120)
+    tileFS = map(freq, 6, 210, 10, 150); 
     setSize();
   } 
   
@@ -35,14 +35,14 @@ class WordTile extends Word {
   } 
   
   boolean intersect(WordTile t2) {
-    float left1 = location.x;                 // the first tile's bounding box
+    float left1 = location.x;                 
     float right1 = location.x+tileW;
     float top1 = location.y-tileH;
     float bot1 = location.y;
-    float left2 = t2.location.x;              // the second tile's bounding box
+    float left2 = t2.location.x;              
     float right2 = left2+t2.tileW;
     float bot2 = t2.location.y;
     float top2 = bot2-t2.tileH;
     return !(right1 < left2 || left1 > right2 || bot1 < top2 || top1 > bot2);   // testing intersection
-  } // intersect()
+  } 
 } 

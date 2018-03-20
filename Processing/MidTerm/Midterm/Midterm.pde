@@ -35,18 +35,15 @@ void draw() {
         table.display(N);
         break;
     case 2:  // Report 2
-        background(255);
-        table.barGraph();
-        break;
-    case 3:  // Report 3
-        background(255);
+        background(195,151,175);
+        table.barGraph(20);
         break;
   } 
 } 
 
 
 void mouseClicked() {
- if (ReportNum == 3){
+ if (ReportNum == 2){
    ReportNum = 1;
   }
  else { ReportNum++; } 

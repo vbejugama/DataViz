@@ -105,12 +105,15 @@ class WordFreq {
       return true;
     }
     
-    void barGraph(){
-      for (int i=0; i < N; i++) {
+    void barGraph(int n){
+      for (int i=0; i < n; i++) {
         WordTile tile = wordFrequency.get(i);
-          rect (i*35+20, height-30-map(tile.getFreq(), 0, 179, 30, height-40), 30, height-30-map(tile.getFreq(), 0, 179, 30, height-40));
+        fill(124,23,54);
+        rect (i*35+20, height-tile.getFreq(), 30, tile.getFreq());
+        //rect ((i*25)+10, (height)-map(tile.getFreq(), 0, 210, 30, height*2/3), 50, (height)-map(tile.getFreq(), 0, 210, 30, (height*2/3)));
        }
     }
+    
     
     void scatterPlort(){
       
