@@ -40,7 +40,7 @@ class WordFreq {
   void display(int N) {
     for (int i=0; i < N; i++) {
       WordTile tile = wordFrequency.get(i);
-      if ( tile.freq > 5 ) {
+      if ( tile.freq > 6 ) {
         tile.display();
        // println(wordFrequency.get(i));
       }
@@ -109,10 +109,10 @@ class WordFreq {
       for (int i=0; i < n; i++) {
         WordTile tile = wordFrequency.get(i);
         fill(124,23,54);
-        rect (i*60+50, height-100-map(tile.getFreq(),5,210,10,height*.5), 40, map(tile.getFreq(),5,210,10,height*.5)-30);
+        rect (i*60+50, height-100-map(tile.getFreq(),6,430,10,height*.6), 40, map(tile.getFreq(),6,430,10,height*.6)-30);
     
         fill(0);
-        textSize(12);
+        textSize(13);
         textAlign(BOTTOM);
         stroke(255);
         text(tile.getWord(), (i*60)+50 , height - 60 );
@@ -120,6 +120,7 @@ class WordFreq {
     }
     
     void scatterPlort(){  
+      
     }
       
     void _sort(ArrayList<WordTile> A) {
