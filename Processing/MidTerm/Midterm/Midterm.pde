@@ -35,7 +35,7 @@ void draw() {
         table.display(N);
         break;
     case 2:  // Report 2
-        background(195,151,175);
+        background(95,151,175);
         table.barGraph(20);
         break;
   } 

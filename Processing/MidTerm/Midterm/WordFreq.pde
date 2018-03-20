@@ -109,14 +109,18 @@ class WordFreq {
       for (int i=0; i < n; i++) {
         WordTile tile = wordFrequency.get(i);
         fill(124,23,54);
-        rect (i*35+20, height-tile.getFreq(), 30, tile.getFreq());
-        //rect ((i*25)+10, (height)-map(tile.getFreq(), 0, 210, 30, height*2/3), 50, (height)-map(tile.getFreq(), 0, 210, 30, (height*2/3)));
+        rect (i*60+50, height-100-map(tile.getFreq(),5,210,10,height*.5), 40, map(tile.getFreq(),5,210,10,height*.5)-30);
+        
+        fill(255);
+        textSize(15);
+        textAlign(BOTTOM);
+        stroke(255);
+        
+        text(tile.getWord(), i*60+50 , height - 60 );
        }
     }
     
-    
-    void scatterPlort(){
-      
+    void scatterPlort(){  
     }
       
     void _sort(ArrayList<WordTile> A) {
