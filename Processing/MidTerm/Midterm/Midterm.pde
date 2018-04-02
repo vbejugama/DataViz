@@ -2,7 +2,6 @@
 // Team Members
 // Vivek Bejugama
 // Adarsh Kannan
-// Referenced : Ira Greenberg, Dianna Xu & Deepak Kumar. “Processing.” 
 
 String inputTextFile = "HP2.txt";
 String inputTextFile2 = "HP1.txt";
@@ -38,6 +37,7 @@ void draw() {
     case 1:  //Report 1
         background(95,111,175);
         table.display(N);
+        table.interact(mouseX,mouseY);
         break;
     case 2:  // Report 2
         background(95,151,175);

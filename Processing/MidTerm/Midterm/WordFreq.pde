@@ -23,29 +23,56 @@ class WordFreq {
   } 
   
   
+  //void arrange(int N) {  
+  //  WordTile tile;
+  //  for (int i=0; i < N; i++) {
+  //      tile = wordFrequency.get(i);    // the tile to be placed
+  //      tile.setFontSize();
+  //      do {  // find a random x, y for tile, i
+  //        float x = random(width-tile.tileW);
+  //        float y = random(tile.tileH, height);
+  //        tile.setXY(x, y);
+  //      } // until the tile is clear of all other tiles
+  //      while (!clear(i));
+  //  }
+  //} 
+  
   void arrange(int N) {  
-    WordTile tile;
-    for (int i=0; i < N; i++) {
-        tile = wordFrequency.get(i);    // the tile to be placed
-        tile.setFontSize();
-        do {  // find a random x, y for tile, i
-          float x = random(width-tile.tileW);
-          float y = random(tile.tileH, height);
-          tile.setXY(x, y);
-        } // until the tile is clear of all other tiles
-        while (!clear(i));
-    }
-  } 
+  WordTile tile;
+  for (int i=0; i < N; i++) {
+    tile = wordFrequency.get(i);
+    tile.setFontSize();
+    // Exploring the spiral layout
+    float cx = width/2, cy = height/2, px, py;
+    float R = 0.0, dR = 0.2, theta = 0.0, dTheta = 0.5;
+    do {  
+     float x = cx + R*cos(theta);
+      float y = cy + R*sin(theta);
+      tile.setXY(x, y);
+      px = x;
+      py = y;
+      theta+=dTheta;
+      R += dR;
+    } 
+    while (!clear (i));
+  }
+} 
+
   
   void display(int N) {
     for (int i=0; i < N; i++) {
       WordTile tile = wordFrequency.get(i);
       if ( tile.freq > 6 ) {
         tile.display();
-       // println(wordFrequency.get(i));
       }
     }
   }  
+  
+  
+  void interact(float cx, float cy){
+    
+  }
+  
   
   int N() { 
       return wordFrequency.size();
