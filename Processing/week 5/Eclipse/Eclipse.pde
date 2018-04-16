@@ -17,7 +17,7 @@
   
   
 void setup() {
-  size(1000, 1000); 
+  size(1200, 1200,P3D); 
   Asteroid2 = loadImage("Asteroid2.png");
   Asteroid = loadImage("Asteroid.png");
 }
@@ -25,7 +25,7 @@ void setup() {
 void draw() {
   
   //Black Background and Stars
-  background(0);
+  background(200);
   stroke(0);
   
   Asteroid2.resize(80,80);
@@ -41,8 +41,8 @@ void draw() {
   float cx = width/2;
   float cy = height/2;
   
-  int aEarth = width/3 ; // major axis of Earths movememnt 
-  int bEarth = width/6; // minor axis of Earths movememnt 
+  int aEarth = int(width/2.4) ; // major axis of Earths movememnt 
+  int bEarth = int(width/4.5); // minor axis of Earths movememnt 
   
   int aMoon = aEarth/8 ; // major axis of Earths movememnt 
   int bMoon = bEarth/2 ; // minor axis of Earths movememnt 
@@ -64,24 +64,29 @@ void draw() {
 
   // Sun 
   fill(255, 140, 0);
-  ellipse(0, 0, sunDia, sunDia);  
+  //ellipse(0, 0, sunDia, sunDia);
+  sphere(sunDia/1.4); 
 
   // The earth rotates around the sun
   rotate( radians(angleInDegrees) ); 
   fill(0,191,255);
   int x = (int)( aEarth * cos(t));
   int y = (int)( bEarth * sin(t));
-  ellipse(x, y, sunDia/2, sunDia/2);
+  //ellipse(x, y, sunDia/2, sunDia/2);
+  translate(x,y);
+  sphere(sunDia/3);
   angleInDegrees += .25;
   
   
   // Moon rotates around the earth
-   translate(x,y);
+
    rotate( radians(angleInDegrees) ); 
    fill(190,190,190);
    int x_m = (int)(aMoon * cos(tMoon));
    int y_m = (int)(bMoon * sin(tMoon));
-   ellipse(x_m, y_m, sunDia/4, sunDia/4);
+   translate(x_m,y_m);
+   //ellipse(x_m, y_m, sunDia/4, sunDia/4);
+   sphere(sunDia/5);
    angleInDegrees += 1;
 
 }
